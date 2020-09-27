@@ -1,0 +1,13 @@
+.row-container {
+  display: flex;
+}
+
+.row-container > div {
+  padding: 12px;
+  width: 25%;
+}
+
+.actions {
+  align-items: center;
+  display: flex;
+}

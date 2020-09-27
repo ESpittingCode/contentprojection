@@ -7,6 +7,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListExampleComponent implements OnInit {
 
+  customActions = [
+    {
+      label: 'Rechazar'
+    },
+    {
+      label: 'Validar'
+    }
+  ];
+
+  customTypedActions = [
+    {
+      label: 'No',
+      type: 'button'
+    },
+    {
+      label: '',
+      type: 'toggle'
+    },
+    {
+      label: 'Mames',
+      type: 'button'
+    }
+  ];
+
   users = [
     {
       id: '1',
@@ -42,6 +66,14 @@ export class ListExampleComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onNewQuery(newQuery: string): void {
+    console.log('I must query: ' + newQuery);
+  }
+
+  onActionClick(index: number): void {
+    console.log('Click on action with index: ' + index);
   }
 
 }

@@ -1,0 +1,60 @@
+<div class="row-container">
+  <div scope="row">{{ data.id }}</div>
+  <div>{{ data.name }}</div>
+  <div>{{ data.email }}</div>
+  <div class="actions">
+    <!-- <div class="custom-control custom-switch">
+      <input
+        type="checkbox"
+        class="custom-control-input">
+      <label class="custom-control-label"></label>
+    </div>
+    <button
+      *ngIf="withActionButton"
+      type="button"
+      class="btn btn-info">
+      Ver
+    </button> -->
+
+    <!-- <div
+      class="custom-control custom-switch"
+      *ngIf="!hideSwitch">
+      <input
+        type="checkbox"
+        class="custom-control-input">
+      <label class="custom-control-label"></label>
+    </div>
+
+    <button
+      *ngFor="let action of actions; let i = index"
+      (click)="emitAction(i)"
+      type="button"
+      class="btn btn-info">
+      {{ action.label }}
+    </button> -->
+
+    <ng-container *ngFor="let action of actionsWithType; let i = index">
+      <ng-container [ngSwitch]="action.type">
+        <div
+          class="custom-control custom-switch"
+          *ngSwitchCase="'toggle'">
+          <input
+            type="checkbox"
+            class="custom-control-input">
+          <label
+            (click)="emitAction(i)"
+            class="custom-control-label"></label>
+        </div>
+
+        <button
+          *ngSwitchCase="'button'"
+          (click)="emitAction(i)"
+          type="button"
+          class="btn btn-info">
+          {{ action.label }}
+        </button>
+      </ng-container>
+    </ng-container>
+
+  </div>
+</div>
